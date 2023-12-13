@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ElectronicLibraryAPI.Models.Author">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAIAgAAAACAAAAACAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Models\Author.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicLibraryAPI.Models.AuthorView">
+    <Position X="2.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAgACAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Models\AuthorView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicLibraryAPI.Models.Basket">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAACAAAAABAAABAAAAAABAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Models\Basket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicLibrary.AdminAccount">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="ElectronicLibrary.AdminAccount.ImportRequest" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>AdminAccount.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>YASURkIQMjwVCirESigM4go4CRIi4hiqCBYqAGFAOrA=</HashCode>
+      <FileName>AdminAccount.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ElectronicLibrary.App">
+    <Position X="0.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicLibrary.Seller">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YBnoVlAAE4SAGg4QoSkSAII1ETEFAEBwAiAkQQDCAIA=</HashCode>
+      <FileName>Seller.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ElectronicLibrary.SignIn">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAEAAAgAAAAAAQACAAAABAAAAAgAIAAAAA=</HashCode>
+      <FileName>SignIn.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ElectronicLibrary.SignUp">
+    <Position X="9.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>SignUp.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ElectronicLibrary.Token">
+    <Position X="9.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Token.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicLibrary.UserAccount">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KzIAARgAkwSQkAhA4hg0AB6DMAABQBBiIqlgRgSAQgI=</HashCode>
+      <FileName>UserAccount.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ElectronicLibrary.UserID">
+    <Position X="9.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UserID.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicLibrary.Models.Book">
+    <Position X="0.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAUAACAAgAAAAACAAAACAAAACAACAghIAgAA=</HashCode>
+      <FileName>Models\Book.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicLibrary.Models.BookList">
+    <Position X="2.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAACEAAAAAhAAAAAAACAIAEIAAAAAAAABAAAEA=</HashCode>
+      <FileName>Models\BookList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicLibraryAPI2.Models.BookReaderCardResult">
+    <Position X="0.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\BookReaderCardResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicLibrary.Models.ChangePasswordRequest">
+    <Position X="2.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAABAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ChangePasswordRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicLibrary.Models.Feedback">
+    <Position X="0.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QABAAAAAAAAAAAAAgAAAAAgAAEAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Models\Feedback.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicLibrary.Models.Genre">
+    <Position X="2.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAIAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Genre.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicLibrary.Models.GenreView">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAgAAIAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\GenreView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicLibrary.Models.IssueProduct">
+    <Position X="11.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAACAAAAgEAAAFAAAAAAQAAAEAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\IssueProduct.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicLibraryAPI2.Models.Logging">
+    <Position X="11.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAABAABAAEAAAAAAIAAAAAgAIAAAAAAAAIAAgwgAAAA=</HashCode>
+      <FileName>Models\Logging.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicLibrary.Models.Promocode">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAICA=</HashCode>
+      <FileName>Models\Promocode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicLibrary.Models.Publisher">
+    <Position X="13" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Models\Publisher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicLibrary.Models.PublisherView">
+    <Position X="13" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAACAAAACAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\PublisherView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicLibrary.Models.ReadTicketList">
+    <Position X="13" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Models\ReadTicketList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicLibraryAPI.Models.ReturnBook">
+    <Position X="13" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACIAAAAAAAABAAAAAAAgFAAAEAAAAAAAAAAAAAAk=</HashCode>
+      <FileName>Models\ReturnBook.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicLibrary.Models.RiderTicket">
+    <Position X="11.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAQAAAAAAAAAAAgAAAAAAAAABAACAIAAAAA=</HashCode>
+      <FileName>Models\RiderTicket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicLibrary.Models.Role">
+    <Position X="9.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAQAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Models\Role.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicLibraryAPI2.Models.StatusLogging">
+    <Position X="9.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\StatusLogging.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicLibrary.Models.TypeLiterature">
+    <Position X="2.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAABAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Models\TypeLiterature.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicLibrary.Models.TypeLiteratureView">
+    <Position X="0.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAABAAAAAAAAAAAIACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TypeLiteratureView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicLibrary.Models.User">
+    <Position X="11.25" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAkoACCAAAAAAgAAQAAQAAAIAAAACAAAQAAgAAIA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

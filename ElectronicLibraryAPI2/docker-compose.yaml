@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  api:
+    restart: always
+    # build:
+    #   context: .
+    #   dockerfile: D:/ASP projects/ElectronicLibraryAPI2/Dockerfile
+    image: my-api
+    ports:
+      - "80:80"
+
+  db:
+    restart: always
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      SA_PASSWORD: "Qq12345678"
+      ACCEPT_EULA: "Y"
+      # MSSQL_PID: "Express"
+      # MSSQL_TCP_PORT: "1433"
+    user: root
+    ports:
+      - "1433:1433"
+    volumes:
+      - D:\Library_Database.mdf:/var/db
+      - D:\Library_Database_log.ldf:/var/logDb
+
+  adminer:
+    restart: always
+    image: adminer
+    container_name: adminer
+    ports:
+      - "8080:8080"

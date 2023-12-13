@@ -1,0 +1,512 @@
+﻿<Window x:Class="ElectronicLibrary.Seller"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ElectronicLibrary"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Width="1200"
+        Height="800"
+        xmlns:oxy="clr-namespace:OxyPlot.Wpf;assembly=OxyPlot.Wpf"
+
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz" xmlns:system="clr-namespace:System;assembly=mscorlib"
+        
+        Title="Библиотекарь" WindowState="Maximized" WindowStyle="None" >
+
+    <Grid>
+        <Grid Height="60" VerticalAlignment="Top" Background="#AB9396">
+            <TextBlock Text="Электронная библиотека 'Книжня'" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontFamily="Yu Gothic Medium" FontWeight="Bold"></TextBlock>
+            <Button x:Name="btnExit" Click="btnExit_Click" HorizontalAlignment="Right" VerticalAlignment="Center" Background="#AB9396" BorderBrush="#AB9396" Margin="20 0 20 0">
+                <materialDesign:PackIcon Kind="Power"></materialDesign:PackIcon>
+            </Button>
+        </Grid>
+        <Grid Margin="0 60 0 0">
+            <dragablz:TabablzControl>
+                <dragablz:TabablzControl.InterTabController>
+                    <dragablz:InterTabController/>
+                </dragablz:TabablzControl.InterTabController>
+                <TabItem Header="КАТАЛОГ" >
+                    <ScrollViewer x:Name="tbCatalog" >
+
+                        <StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="10">
+                                <TextBox x:Name="txtSearch" Width="900" BorderThickness="3"  Margin="250,0,10,0"/>
+                                <Button x:Name="btnSearch" Click="btnSearch_Click" Content="Поиск"/>
+                                <Button x:Name="btnSort" Click="btnSort_Click" Margin="20,0,0,0">
+                                    <TextBlock Text="⇅" FontSize="17"></TextBlock>
+                                </Button>
+                                <Button x:Name="btnFilter" Click="btFilter_Click" Margin="20,0,0,0">
+                                    <Image Height="15" Width="15"  Source="D:\ASP projects\ElectronicLibrary\ElectronicLibrary\Picture\Filter.png"></Image>
+                                </Button>
+
+                                <Popup x:Name="filterPopup"  VerticalOffset="100" HorizontalOffset="600" StaysOpen="False">
+                                    <Border Background="White" BorderBrush="Black" BorderThickness="2" CornerRadius="5">
+                                        <StackPanel Margin="10">
+                                            <TextBlock Text="Выберите параметры фильтра:" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+                                            <TextBlock Text="Жанр:" TextAlignment="Center" FontSize="20" FontWeight="Bold"></TextBlock>
+                                            <ItemsControl x:Name="myItemsControl" Width="300" Height="110">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <CheckBox Content="{Binding}" FontSize="18" Checked="CheckBox_Checked" Tag="Genre" Unchecked="CheckBox_Unchecked">
+                                                                <CheckBox.Style>
+                                                                    <Style TargetType="CheckBox">
+                                                                        <Setter Property="BorderBrush" Value="Black"/>
+                                                                        <Setter Property="BorderThickness" Value="3"/>
+                                                                    </Style>
+                                                                </CheckBox.Style>
+                                                            </CheckBox>
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                                <ItemsControl.Items>
+                                                    <system:String>Роман</system:String>
+                                                    <system:String>Комедия</system:String>
+                                                    <system:String>Поэма</system:String>
+                                                    <system:String>Пьеса</system:String>
+                                                </ItemsControl.Items>
+                                            </ItemsControl>
+                                            <TextBlock Text="Тип литературы:" TextAlignment="Center" FontSize="18" Margin="0,0,0,10" FontWeight="Bold"></TextBlock>
+                                            <ItemsControl  Width="300" Height="110">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <CheckBox Content="{Binding}" FontSize="18" Tag="TypeLiterature" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">
+                                                                <CheckBox.Style>
+                                                                    <Style TargetType="CheckBox">
+                                                                        <Setter Property="BorderBrush" Value="Black"/>
+                                                                        <Setter Property="BorderThickness" Value="3"/>
+                                                                    </Style>
+                                                                </CheckBox.Style>
+                                                            </CheckBox>
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                                <ItemsControl.Items>
+                                                    <system:String>Художественная</system:String>
+                                                    <system:String>Научная</system:String>
+                                                    <system:String>Учебная</system:String>
+                                                    <system:String>Техническая</system:String>
+                                                </ItemsControl.Items>
+                                            </ItemsControl>
+                                            <TextBlock Text="Издатель:" TextAlignment="Center" FontSize="20" FontWeight="Bold"></TextBlock>
+                                            <ItemsControl  Width="300" Height="130">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <CheckBox Content="{Binding}" Tag="Publisher" FontSize="18" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">
+                                                                <CheckBox.Style>
+                                                                    <Style TargetType="CheckBox">
+                                                                        <Setter Property="BorderBrush" Value="Black"/>
+                                                                        <Setter Property="BorderThickness" Value="3"/>
+                                                                    </Style>
+                                                                </CheckBox.Style>
+                                                            </CheckBox>
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                                <ItemsControl.Items>
+                                                    <system:String>Мартин</system:String>
+                                                    <system:String>Азбука</system:String>
+                                                    <system:String>ACT</system:String>
+                                                    <system:String>СЗКЭО</system:String>
+                                                    <system:String>Искатель</system:String>
+                                                </ItemsControl.Items>
+                                            </ItemsControl>
+
+                                            <Button x:Name="btnOkFilter" Content="Фильтровать"  Click="btnOkFilter_Click" HorizontalAlignment="Right"/>
+                                        </StackPanel>
+                                    </Border>
+                                </Popup>
+
+                            </StackPanel>
+
+
+                            <Popup  Name="popup" IsOpen="False"  DataContext="{Binding SelectedBook}" Placement="Center" VerticalOffset="-190">
+                                <Border  >
+                                    <StackPanel Width="1000" Background="#d9d1d1">
+                                        <Grid Margin="0,0,0,10"  >
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="600"></RowDefinition>
+                                                <RowDefinition Height="80"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="400"></ColumnDefinition>
+                                                <ColumnDefinition Width="600"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Border x:Name="bookImageContainer" Grid.Column="0" Grid.Row="0" Width="190" Height="300" VerticalAlignment="Top" Margin="0,20,0,0">
+                                                <Image x:Name="bookImage" Stretch="UniformToFill" />
+                                            </Border>
+
+                                            <TextBlock x:Name="tbNameBook" Grid.Column="1" Grid.Row="0" Margin="-2,10,0,0" Text="Название книги:"  FontSize="30"  HorizontalAlignment="Left"></TextBlock>
+                                            <TextBlock x:Name="tbYearPublic" Grid.Column="1" Grid.Row="0" Margin="0,60,0,0" Text="Год издания:" FontSize="20" HorizontalAlignment="Left"></TextBlock>
+                                            <TextBlock x:Name="tbBrief" Grid.Column="1" Grid.Row="0"  Margin="150,310,0,0" Text="Краткое содержание:" FontSize="20" HorizontalAlignment="Left" ></TextBlock>
+                                            <TextBlock x:Name="tbBriefFull" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"  Width="550" Height="240" Text="Краткое содержание.............." FontSize="20" HorizontalAlignment="Left" TextWrapping="Wrap"  Margin="0,250,0,0"/>
+                                            <TextBlock x:Name="tbNumPage" Grid.Column="1" Grid.Row="0"  Text="Количество страниц: " FontSize="20" HorizontalAlignment="Left" Margin="0,100,0,0"></TextBlock>
+                                            <TextBlock x:Name="tbPrice" Grid.Column="1" Grid.Row="0"  Text="Цена: " FontSize="20" HorizontalAlignment="Left" Margin="0,140,0,0"></TextBlock>
+                                            <TextBlock Name="tbTypeLiterature"  Grid.Column="1" Grid.Row="0"  Text="Тип литературы: " FontSize="20" HorizontalAlignment="Left" Margin="0,180,0,0"></TextBlock>
+                                            <TextBlock x:Name="tbGenre" Grid.Column="1" Grid.Row="0"  Text="Жанр:" FontSize="20" HorizontalAlignment="Left" Margin="0,220,0,0"></TextBlock>
+                                            <TextBlock x:Name="tbPublisher" Grid.Column="1" Grid.Row="0"  Text="Издатель:" FontSize="20" HorizontalAlignment="Left" Margin="0,260,0,0"></TextBlock>
+                                            <Button Grid.ColumnSpan="2" Grid.Row="6" Content="Закрыть" Width="100" Height="30" Click="CloseButton_Click" Margin="0,-50,0,0"/>
+                                        </Grid>
+                                    </StackPanel>
+                                </Border>
+                            </Popup>
+
+
+                            <StackPanel Margin="100 0">
+                                <ItemsControl x:Name="ListViewProducts" ItemsSource="{Binding Books}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Margin="10" Width="300" Height="370">
+                                                <StackPanel>
+                                                    <Border Width="190" Height="300" CornerRadius="5" Margin="5" MouseDown="Diteils">
+                                                        <Border.Background>
+                                                            <ImageBrush ImageSource="{Binding CoverPhoto}"></ImageBrush>
+                                                        </Border.Background>
+                                                    </Border>
+                                                    <TextBlock Margin="5" Text="{Binding Price, StringFormat={}{0} ₽}" FontSize="20" FontFamily="Franklin Gothic Medium" HorizontalAlignment="Center"></TextBlock>
+                                                    <TextBlock Margin="5 0" Text="{Binding NameBook}" FontSize="19" HorizontalAlignment="Center"></TextBlock>
+
+                                                </StackPanel>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                </ItemsControl>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+
+
+                </TabItem>
+                <TabItem Header="УПРАВЛЕНИЕ КНИГАМИ">
+                    <Grid  >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="230"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+
+
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="90"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="90"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <DataGrid SelectionChanged="dgBook_SelectionChanged" Grid.Column="1" x:Name="dgBook" Grid.Row="1" AutoGenerateColumns="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Название книги" Binding="{Binding NameBook}" />
+                                    <DataGridTextColumn Header="Дата публикации" Binding="{Binding PublicationDate}" />
+                                    <DataGridTextColumn Header="Краткое описание" Binding="{Binding BriefPlot}" />
+                                    <DataGridTextColumn Header="Количество страниц" Binding="{Binding NumberPages}" />
+                                    <DataGridTextColumn Header="Обложка" Binding="{Binding CoverPhoto}" />
+                                    <DataGridTextColumn Header="Цена" Binding="{Binding Price}" />
+                                    <DataGridTextColumn Header="Файл fb2" Binding="{Binding FormatFB2}" />
+                                    <DataGridTextColumn Header="Файл txt2" Binding="{Binding FormatTXT}" />
+                                    <DataGridTextColumn Header="Автор" Binding="{Binding AuthorView[0].Author.FullName}" />
+                                    <DataGridTextColumn Header="Жанр" Binding="{Binding GenreView[0].Genre.NameGenre}" />
+                                    <DataGridTextColumn Header="Тип литературы" Binding="{Binding TypeLiteratureView[0].TypeLiterature.NameTypeLiterature}" />
+                                    <DataGridTextColumn Header="Издатель" Binding="{Binding PublisherView[0].Publisher.NamePublisher}" />
+
+                                </DataGrid.Columns>
+                            </DataGrid>
+
+                        </Grid>
+                        <Grid  Grid.Row="1" Margin="100,0,0,0"   >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="500"></ColumnDefinition>
+                                <ColumnDefinition Width="650"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+
+                            <Grid  Grid.Column="0"  Margin="0,0,0,-53">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="200"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="90"></RowDefinition>
+                                    <RowDefinition Height="90"></RowDefinition>
+                                    <RowDefinition Height="90"></RowDefinition>
+                                    <RowDefinition Height="90"></RowDefinition>
+                                    <RowDefinition Height="50"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Column="0" FontSize="18" Grid.Row="0" HorizontalAlignment="Center" Margin="0,20,0,0">Название книги</Label>
+                                <TextBox x:Name="tbBookName" Grid.Column="0" FontSize="16"  Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,35,0,0" Background="#f4f1f1" Width="122"></TextBox>
+                                <Label Grid.Column="0" FontSize="18"  Grid.Row="1" HorizontalAlignment="Center" Margin="0,20,0,0">Колличество страниц</Label>
+                                <TextBox x:Name="tbBookPage" materialDesign:HintAssist.Hint="0" Grid.Column="0" FontSize="16"  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,35,0,0"  Background="#f4f1f1" Width="122"></TextBox>
+                                <Label Grid.Column="0" FontSize="18"  Grid.Row="2" HorizontalAlignment="Center" Margin="0,20,0,0">Жанр</Label>
+                                <ComboBox  DisplayMemberPath="NameGenre" x:Name="cbBookGenre" Grid.Column="0" FontSize="16"  Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,35,0,0" Background="#f4f1f1" Width="122"></ComboBox>
+                                <Label Grid.Column="0" FontSize="18"  Grid.Row="3" HorizontalAlignment="Center" Margin="0,20,0,0">Тип литературы</Label>
+                                <ComboBox  DisplayMemberPath="NameTypeLiterature" x:Name="cbBookTypeLiterature" Grid.Column="0" FontSize="16"  Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,35,0,0" Background="#f4f1f1" Width="122"></ComboBox>
+                                <Label Grid.Column="1" FontSize="18"  Grid.Row="0" HorizontalAlignment="Center" Margin="0,20,0,0">Издатель</Label>
+                                <ComboBox  DisplayMemberPath="NamePublisher" x:Name="cbBookPublisher" Grid.Column="1" FontSize="16"  Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,35,0,0" Background="#f4f1f1" Width="122"></ComboBox>
+                                <Label Grid.Column="1" FontSize="18"  Grid.Row="1" HorizontalAlignment="Center" Margin="0,20,0,0">Автор</Label>
+                                <ComboBox  DisplayMemberPath="FullName" x:Name="cbBookAuthor" Grid.Column="1" FontSize="16"  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,35,0,-2" Background="#f4f1f1" Width="122"></ComboBox>
+                                <Label Grid.Column="1" FontSize="18"  Grid.Row="2" HorizontalAlignment="Center" Margin="0,20,0,0">Цена</Label>
+                                <TextBox x:Name="tbBookPrice" materialDesign:HintAssist.Hint="0.00" Grid.Column="1" FontSize="16"  Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,35,0,0" Background="#f4f1f1" Width="122"></TextBox>
+                                <Label Grid.Column="1" FontSize="18"   Grid.Row="3" Grid.ColumnSpan="2"  HorizontalAlignment="Center" Margin="0,0,0,0">Краткое описание</Label>
+                                <TextBox x:Name="tbBookNotes" Grid.Column="1" FontSize="16"   Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="2" HorizontalAlignment="Center" Width="300" Background="#f4f1f1" Height="100" Margin="0,20,0,0" ></TextBox>
+                                <Image x:Name="imgBook" Grid.Column="2"  Grid.Row="0" Grid.RowSpan="2" Width="100"  HorizontalAlignment="Center" Margin="0,30,0,0"></Image>
+                                <Button x:Name="btnAddImage" Click="btnAddImage_Click"  Grid.Column="2"  Grid.Row="2" Width="125" Height="50">
+                                    <TextBlock TextAlignment="Center"> Загрузить <LineBreak/> фотографию</TextBlock>
+                                </Button>
+                            </Grid>
+                            <Grid Grid.Column="1"  Grid.RowSpan="2" Margin="0,25,-100,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="300"></ColumnDefinition>
+                                    <ColumnDefinition Width="400"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="90"></RowDefinition>
+                                    <RowDefinition Height="90"></RowDefinition>
+                                    <RowDefinition Height="90"></RowDefinition>
+                                    <RowDefinition Height="90"></RowDefinition>
+                                    <RowDefinition Height="150"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <DataGrid SelectionChanged="dgPromocode_SelectionChanged" AutoGenerateColumns="False" x:Name="dgPromocode"  Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Height="150" Width="400" Margin="200,10,-300,0" VerticalAlignment="Top">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Промокод" Binding="{Binding NamePromocode}" />
+                                        <DataGridTextColumn Header="Скидка %" Binding="{Binding  Discount}" />
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                                <Label Grid.Column="0" FontSize="18"  Grid.Row="0" HorizontalAlignment="Center" >Файл .fb2</Label>
+                                <TextBox x:Name="tbFileFB2" Text="Файл не загружен" Grid.Column="0" FontSize="12" Margin="0,60,0,0"  Grid.Row="0" HorizontalAlignment="Center" ></TextBox>
+                                <Button Click="btnDownloadFb2_Click" x:Name="btnDownloadFb2" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" >Загрузить файл</Button>
+                                <Label Grid.Column="0" FontSize="18"  Grid.Row="1" HorizontalAlignment="Center" >Файл .txt</Label>
+                                <TextBox x:Name="tbFileTXT" Text="Файл не загружен" Grid.Column="0" FontSize="12" Margin="0,60,0,0"  Grid.Row="1" HorizontalAlignment="Center" ></TextBox>
+                                <Button Click="btnDownloadTXT_Click" x:Name="btnDownloadTXT" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" >Загрузить файл</Button>
+                                <Button Click="btnAddBook_Click" x:Name="btnAddBook" Grid.Row="2" Height="45" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,5,0,0" Width="140.343333333333">Добавить книгу</Button>
+                                <Button Click="btnUpdateBook_Click" x:Name="btnUpdateBook" Grid.Row="3" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,0" Width="140.343333333333" Cursor="Hand">Изменить книгу</Button>
+                                <Button Click="btnDeleteBook_Click" x:Name="btnDeleteBook"  Grid.Row="4" Height="45" HorizontalAlignment="Center" Width="140.343333333333" VerticalAlignment="Top" Cursor="Hand">Удалить книгу</Button>
+
+                                <Grid Grid.Column="1" Grid.Row="2" Grid.RowSpan="5" Margin="150,0,0,0" Height="305" Width="250" Background="#FFD7C7C9" Cursor="Hand">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="40" ></RowDefinition>
+                                        <RowDefinition  Height="60" ></RowDefinition>
+                                        <RowDefinition  Height="60"></RowDefinition>
+                                        <RowDefinition Height="100"></RowDefinition>
+                                        <RowDefinition Height="100" ></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" HorizontalAlignment="Center" FontSize="22" FontWeight="Bold">Создание промокода</Label>
+                                    <Label Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" >Название промокода</Label>
+                                    <TextBox x:Name="tbNamePromocode" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Background="#f4f1f1" Width="180" Margin="0,5,0,0" ></TextBox>
+                                    <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" >Скидка (%)</Label>
+                                    <TextBox x:Name="tbDiscount" materialDesign:HintAssist.Hint="0" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Background="#f4f1f1" Width="180" Margin="0,5,0,0" ></TextBox>
+                                    <Button Click="btnAddPromocode_Click" x:Name="btnAddPromocode" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top" Cursor="Hand" Margin="0,5,0,0" Width="168.133333333333" >Создать промокод</Button>
+                                    <Button Click="btnChangePromocode_Click" x:Name="btnChangePromocode" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,15" Cursor="Hand" Width="168.133333333333" >Изменить промокод</Button>
+                                    <Button Click="btnDeletePromocode_Click" x:Name="btnDeletePromocode" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,0" Cursor="Hand" Width="168.133333333333" >Удалить промокод</Button>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+
+
+                    </Grid>
+                </TabItem>
+                <TabItem Header="МОНИТОРИНГ ПРОДАЖ">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1000"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+
+                        <Grid  Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="690"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid  Grid.Row="0">
+                                <oxy:PlotView Grid.Row="0" Name="salesPlot" />
+                            </Grid>
+
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition Width="40"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Margin="100,0,0,0" Grid.Column="1" VerticalAlignment="Center">ОТ</TextBlock>
+                                <DatePicker x:Name="datePickerFrom" Margin="130,0,0,0" Grid.Column="1"></DatePicker>
+                                <TextBlock  Grid.Column="2" VerticalAlignment="Center" Margin="10,0,0,0">ДО</TextBlock>
+                                <DatePicker x:Name="datePickerTo" Margin="0,0,130,0" Grid.Column="3"></DatePicker>
+                                <Button x:Name="btnDiagrem" Click="btnDiagrem_Click" Grid.Column="4" Margin="-90,0,190,0">Построить диаграмму</Button>
+
+                            </Grid>
+
+
+                            
+                        </Grid>
+
+                        <Grid  Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="250"></ColumnDefinition>
+                                    <ColumnDefinition Width="150"></ColumnDefinition>
+                                    <ColumnDefinition ></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Margin="10,0,0,0" FontSize="18" VerticalAlignment="Center" Grid.Column="0">Введите читательский билет:</TextBlock>
+                                <TextBox x:Name="tbReaderTicket" Grid.Column="1" Margin="10,0,0,0" FontSize="18" VerticalAlignment="Center"></TextBox>
+                                <Button x:Name="btnFindReaderTicket" Click="btnFindReaderTicket_Click" Grid.Column="2" Margin="20,0,20,0">Найти</Button>
+                            </Grid>
+
+                            <DataGrid x:Name="dgIssueBookToRiderTicket" Grid.Row="2" Margin="0,0,20,0" AutoGenerateColumns="False" ItemsSource="{Binding BooksCollection}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Названия купленных книг" Binding="{Binding}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </Grid>
+
+                </TabItem>
+                <TabItem Header="ВОЗВРАТ СРЕДСТВ">
+                    <Grid Margin="30,20,0,0" >
+
+                        <ScrollViewer>
+                        <ItemsControl Grid.Column="0" Grid.Row="0" ItemsSource="{Binding ReturnBookDetailsList}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Width="300" Margin="0,0,10,10" Background="#e3d4d4">
+                                        <Grid ShowGridLines="True">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="60"></RowDefinition>
+                                                <RowDefinition Height="60"></RowDefinition>
+                                                <RowDefinition Height="60"></RowDefinition>
+                                                <RowDefinition Height="100"></RowDefinition>
+                                                <RowDefinition Height="60"></RowDefinition>
+                                            </Grid.RowDefinitions>
+
+                                            <TextBlock Text="{Binding EmailUserForReturn}" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+                                            <Label Content="{Binding NameUserForReturn}" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+                                                <Label Content="{Binding Book.NameBook}" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+                                            <TextBlock Text="{Binding ReasonReturn}" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"  TextWrapping="Wrap"/>
+                                                <Button Tag="{Binding}" Click="btnAgreeReturn_Click" Content="Принять" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="18" FontWeight="Bold" Margin="20,0,0,0"/>
+                                                <Button Tag="{Binding}" Click="btnNoAgreeReturn_Click" Content="Отказать" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="18" FontWeight="Bold" Margin="0,0,20,0"/>
+                                        </Grid>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                            </ItemsControl>
+                        </ScrollViewer>
+
+                        <Popup x:Name="popNoAgreeReturn"   IsOpen="False" Placement="Center" Margin="0,0,0,0" VerticalOffset="-80" >
+                            <Border  Background="#AB9396" >
+                                <StackPanel  Width="300"  Background="#AB9396">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="200"></RowDefinition>
+                                            <RowDefinition Height="50"></RowDefinition>
+
+                                        </Grid.RowDefinitions>
+                                        <Border BorderBrush="Black" BorderThickness="1" Margin="5">
+                                            <Label Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold">Причина отказа</Label>
+                                        </Border>
+                                        <TextBox x:Name="tbReasonNotReturn" Foreground="White"  TextWrapping="Wrap" Grid.Row="0" VerticalAlignment="Bottom" FontSize="15" HorizontalAlignment="Center" Width="250" Height="130" Margin="0,0,0,10"></TextBox>
+                                        <Button x:Name="btnSendReasonNotReturn" Click="btnSendReasonNotReturn_Click" Margin="10,0,0,10" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="18" FontWeight="Bold">Отказать</Button>
+                                        <Button x:Name="canelReturnBookPopup" Click="canelReturnBookPopup_Click" Margin="0,0,10,10" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="18" FontWeight="Bold">Отменить</Button>
+                                    </Grid>
+                                </StackPanel>
+                            </Border>
+                        </Popup>
+                       
+                    </Grid>
+                </TabItem>
+                <TabItem Header="ОБРАТНАЯ СВЯЗЬ">
+
+                    <Grid Margin="30,20,0,0" >
+
+
+                        <ScrollViewer>
+                            <ItemsControl Grid.Column="0" Grid.Row="0" ItemsSource="{Binding FeedbackDetailsList}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Width="300" Margin="0,0,10,10" Background="#e3d4d4">
+                                            <Grid ShowGridLines="True">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="60"></RowDefinition>
+                                                    <RowDefinition Height="60"></RowDefinition>
+                                                    <RowDefinition Height="100"></RowDefinition>
+                                                    <RowDefinition Height="60"></RowDefinition>
+                                                </Grid.RowDefinitions>
+
+                                                <TextBlock Text="{Binding NameUserMessage}" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+                                                <TextBlock Text="{Binding EmailUserMessage}" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+                                                <TextBlock Text="{Binding Message}" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"  TextWrapping="Wrap"/>
+                                                <Button x:Name="btnFeedback" Click="btnFeedback_Click" Content="Ответить" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Tag="{Binding}" />
+                                               
+                                            </Grid>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                            </ItemsControl>
+                        </ScrollViewer>
+
+
+                        <Popup x:Name="popupFeedback"  IsOpen="False" Placement="Center" Margin="0,100,0,0" >
+                            <Border  >
+                                <StackPanel  Width="300"  Background="#AB9396" >
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="200"></RowDefinition>
+                                            <RowDefinition Height="50"></RowDefinition>
+
+                                        </Grid.RowDefinitions>
+                                        <Border BorderBrush="Black" BorderThickness="1" Margin="5">
+                                            <Label Grid.Row="0" BorderBrush="Black" VerticalAlignment="Top" Foreground="White" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold">Ответ</Label>
+                                        </Border>
+                                        <TextBox  TextWrapping="Wrap" x:Name="tbAnswerFeedback" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="15" Width="250" Foreground="White" Height="130" Margin="0,0,0,10"></TextBox>
+                                        <Button x:Name="tbSendAnswerFeedback" Click="tbSendAnswerFeedback_Click" Background="#e3d4d4" Foreground="Black"  Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,10" FontSize="18" FontWeight="Bold">Отправить</Button>
+                                        <Button x:Name="canelPopupFeedback" Click="canelPopupFeedback_Click" Background="#e3d4d4" Foreground="Black" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,10" FontSize="18" FontWeight="Bold">Отменить</Button>
+                                    </Grid>
+                                </StackPanel>
+                            </Border>
+                        </Popup>
+                    </Grid>
+                </TabItem>
+
+            </dragablz:TabablzControl>
+        </Grid>
+    </Grid>
+</Window>
